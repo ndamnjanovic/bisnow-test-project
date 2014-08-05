@@ -49,24 +49,12 @@ class ContentService {
     public function storeStory($inputs)
     {
         $storyInputs = array('title' => $inputs['title'], 'content' => $inputs['content']);
-        $storyValidator = Validator::make(
-            $storyInputs,
-            $this->validateStoryRules
-        );
-
         $storyDataInputs = array('type' => $inputs['storyType'], 'value' => $inputs['storyTypeValue']);
-        $storyDataValidator = Validator::make(
-            $storyDataInputs,
-            $this->validateStoryDataRules
-        );
 
-        if($storyValidator->fails()) {
-            $result = $storyValidator;
-            return $result;
-        }
-        if($storyDataValidator->fails()) {
-            $result = $storyDataValidator;
-            return $result;
+        $validation = $this->validateInput($storyInputs, $storyDataInputs);
+
+        if(is_a($validation, 'Illuminate\Validation\Validator')) {
+            return $validation;
         }
 
         $content = new Content;
@@ -80,6 +68,28 @@ class ContentService {
         $storyData = $story->storyData()->save($storyData);
 
         return $storyData;
+    }
+
+    private function validateInput($storyInputs, $storyDataInputs)
+    {
+        $storyValidator = Validator::make(
+            $storyInputs,
+            $this->validateStoryRules
+        );
+
+        $storyDataValidator = Validator::make(
+            $storyDataInputs,
+            $this->validateStoryDataRules
+        );
+
+        if($storyValidator->fails()) {
+            return $storyValidator;
+        }
+        if($storyDataValidator->fails()) {
+            return $storyDataValidator;
+        }
+
+        return true;
     }
 
 }
