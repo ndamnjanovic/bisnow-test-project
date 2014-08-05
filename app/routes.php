@@ -12,5 +12,4 @@
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('/new-story', 'StoryController@showStoryForm');
-Route::post('/add-story', 'StoryController@storeStory');
+Route::resource('story', 'StoryController');

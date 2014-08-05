@@ -14,7 +14,7 @@ class StoryController extends BaseController {
     * Returns form used for submiting new story to application
     *
     */
-    public function showStoryForm()
+    public function create()
     {
         $this->layout->content = View::make('newStoryForm');
     }
@@ -24,7 +24,7 @@ class StoryController extends BaseController {
     * Stores new story to database
     *
     */
-    public function storeStory()
+    public function store()
     {
 
         $inputs = Input::only('title', 'content', 'storyType', 'storyTypeValue');
@@ -33,7 +33,7 @@ class StoryController extends BaseController {
         $errorOcurred = is_a($result, 'Illuminate\Validation\Validator');
 
         if($errorOcurred){
-            return Redirect::to('/new-story')
+            return Redirect::to('/story/create')
                             ->withErrors($result)
                             ->withInput();
         } else {

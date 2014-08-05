@@ -3,7 +3,7 @@
 <div class="col-md-8 col-md-offset-2">
     <h3>Submit new story</h3>
 
-    <form role="form" method="post" action="/add-story">
+    <form role="form" method="post" action="/story">
       <div class="form-group">
         <label for="title">Title</label>
         <input type="text" class="form-control" id="title" name="title"

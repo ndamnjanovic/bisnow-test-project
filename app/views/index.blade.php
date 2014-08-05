@@ -43,5 +43,5 @@
     </table>
 </div>
 <div class="col-md-8 col-md-offset-2">
-    <a class="btn btn-primary add-story" href="/new-story">Submit new story</a>
+    <a class="btn btn-primary add-story" href="/story/create">Submit new story</a>
 </div>
