@@ -17,7 +17,7 @@ class CreateArticlesTable extends Migration {
             Schema::connection('mysql2')->create('articles', function($table)
             {
                 $table->increments('id');
-                $table->string('content_id', 250);
+                $table->integer('content_id')->unsigned();
                 $table->string('title');
                 $table->text('content');
                 $table->timestamps();

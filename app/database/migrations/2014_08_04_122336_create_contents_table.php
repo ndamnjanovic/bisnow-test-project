@@ -17,7 +17,7 @@ class CreateContentsTable extends Migration {
             Schema::create('contents', function($table)
             {
                 $table->increments('id');
-                $table->string('type', 250);
+                $table->string('type', 50);
                 $table->date('date');
                 $table->timestamps();
             });

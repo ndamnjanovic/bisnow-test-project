@@ -17,7 +17,7 @@ class CreateStoryDataTable extends Migration {
             Schema::create('story_data', function($table)
             {
                 $table->increments('id');
-                $table->string('story_id', 250);
+                $table->integer('story_id')->unsigned();
                 $table->string('type');
                 $table->string('value');
                 $table->timestamps();
