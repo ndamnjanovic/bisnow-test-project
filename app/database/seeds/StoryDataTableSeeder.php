@@ -7,24 +7,24 @@ class StoryDataTableSeeder extends DatabaseSeeder {
         StoryData::create(
             array(
                 'story_id' => 1,
-                'type' => 'First Story',
-                'value' => 'Content of the first story'
+                'type' => 'tag',
+                'value' => 'sports'
             )
         );
 
         StoryData::create(
             array(
                 'story_id' => 2,
-                'type' => 'Second Story',
-                'value' => 'Content of the second story'
+                'type' => 'tag',
+                'value' => 'television'
             )
         );
 
         StoryData::create(
             array(
                 'story_id' => 3,
-                'type' => 'Third Story',
-                'value' => 'Content of the third story'
+                'type' => 'tag',
+                'value' => 'music'
             )
         );
     }
