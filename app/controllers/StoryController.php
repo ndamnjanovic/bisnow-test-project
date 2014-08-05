@@ -26,10 +26,8 @@ class StoryController extends BaseController {
     */
     public function store()
     {
-
-        $inputs = Input::only('title', 'content', 'storyType', 'storyTypeValue');
         $result = $this->contentService
-                                ->storeStory($inputs);
+                                ->storeStory(Input::only('title', 'content', 'storyType', 'storyTypeValue'));
         $errorOcurred = is_a($result, 'Illuminate\Validation\Validator');
 
         if($errorOcurred){
@@ -37,9 +35,7 @@ class StoryController extends BaseController {
                             ->withErrors($result)
                             ->withInput();
         } else {
-            $contents = $this->contentService->getAllContents();
-
-            return Redirect::to('/')->with('message', 'Story succesfully saved');
+           return Redirect::to('/')->with('message', 'Story succesfully saved');
         }
     }
 
