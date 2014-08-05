@@ -24,6 +24,27 @@ class ContentTableSeeder extends DatabaseSeeder {
                 'date' => Carbon\Carbon::now()->toDateTimeString()
             )
         );
+
+        Content::create(
+            array(
+                'type' => 'article',
+                'date' => Carbon\Carbon::now()->toDateTimeString()
+            )
+        );
+
+        Content::create(
+            array(
+                'type' => 'article',
+                'date' => Carbon\Carbon::now()->toDateTimeString()
+            )
+        );
+
+        Content::create(
+            array(
+                'type' => 'article',
+                'date' => Carbon\Carbon::now()->toDateTimeString()
+            )
+        );
     }
 
 }

@@ -8,4 +8,9 @@ class StoryData extends Eloquent {
 
     protected $fillable = array('story_id', 'type', 'value');
 
+    public function story()
+    {
+        return $this->hasOne('StoryData');
+    }
+
 }

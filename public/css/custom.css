@@ -1,0 +1,8 @@
+.contents {
+  height: 300px;
+  overflow: auto;
+}
+
+.main {
+  margin-top: 30px;
+}

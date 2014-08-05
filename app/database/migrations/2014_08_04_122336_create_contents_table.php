@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStoryTable extends Migration {
+class CreateContentsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,13 @@ class CreateStoryTable extends Migration {
 	 */
 	public function up()
 	{
-		if (!Schema::hasTable('story'))
+		if (!Schema::hasTable('contents'))
         {
-            Schema::create('story', function($table)
+            Schema::create('contents', function($table)
             {
                 $table->increments('id');
-                $table->string('content_id', 250);
-                $table->string('title');
-                $table->text('content');
+                $table->string('type', 250);
+                $table->date('date');
                 $table->timestamps();
             });
         }
@@ -32,7 +31,7 @@ class CreateStoryTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('story');
+		Schema::dropIfExists('contents');
 	}
 
 }

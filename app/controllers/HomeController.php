@@ -9,14 +9,54 @@ class HomeController extends BaseController {
         $this->contentService = $contentService;
     }
 
-
+    /**
+    *
+    * Index action displays listing of all available contents
+    * (both articles and stories)
+    *
+    * @return View
+    */
     public function index()
     {
         $contents = $this->contentService->getAllContents();
 
-        return View::make('index', array(
+
+        $this->layout->content = View::make('index', array(
             'contents' => $contents
         ));
+
     }
 
+    /**
+    *
+    * returns form used for submiting new story to application
+    *
+    */
+    public function showStoryForm()
+    {
+        $this->layout->content = View::make('newStoryForm');
+    }
+
+    /**
+    *
+    * Stores new story to database
+    *
+    */
+    public function storeStory()
+    {
+
+        $inputs = Input::only('title', 'content', 'storyType', 'storyTypeValue');
+        $result = $this->contentService
+                                ->storeStory($inputs);
+        $errorOcurred = is_a($result, 'Illuminate\Validation\Validator');
+
+        if($errorOcurred){
+            return Redirect::to('/new-story')
+                            ->withErrors($result);
+        } else {
+            $contents = $this->contentService->getAllContents();
+
+            return Redirect::to('/')->with('message', 'Story succesfully saved');
+        }
+    }
 }

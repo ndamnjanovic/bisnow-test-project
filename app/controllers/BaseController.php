@@ -2,6 +2,12 @@
 
 class BaseController extends Controller {
 
+    /**
+     * Default layout displayed on all pages
+     */
+    protected $layout = 'layout';
+
+
 	/**
 	 * Setup the layout used by the controller.
 	 *

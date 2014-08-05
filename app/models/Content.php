@@ -4,7 +4,7 @@ class Content extends Eloquent {
 
     protected $connection = 'mysql1';
 
-    protected $table = 'content';
+    protected $table = 'contents';
 
     protected $fillable = array('type', 'date');
 
