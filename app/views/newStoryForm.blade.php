@@ -6,7 +6,9 @@
     <form role="form" method="post" action="/add-story">
       <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" name="title" placeholder="Enter story title">
+        <input type="text" class="form-control" id="title" name="title"
+               placeholder="Enter story title"
+               value="<?php echo Input::old('title') ?>">
       </div>
       @if ($errors->first('title'))
           <div class="alert alert-danger">
@@ -15,7 +17,8 @@
       @endif
       <div class="form-group">
         <label for="content">Content</label>
-        <textarea class="form-control" id="content" name="content" placeholder="Enter story content"></textarea>
+        <textarea class="form-control" id="content" name="content"
+                  placeholder="Enter story content"><?php echo Input::old('content') ?></textarea>
       </div>
       @if ($errors->first('content'))
           <div class="alert alert-danger">
@@ -31,7 +34,9 @@
        </div>
        <div class="form-group">
             <label for="storyTypeValue">Type Value</label>
-            <input type="text" class="form-control" id="typeValue" name="storyTypeValue" placeholder="Enter type value">
+            <input type="text" class="form-control" id="typeValue" name="storyTypeValue"
+                   placeholder="Enter type value"
+                   value="<?php echo Input::old('storyTypeValue') ?>">
        </div>
         @if ($errors->first('value'))
             <div class="alert alert-danger">

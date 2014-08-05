@@ -35,7 +35,7 @@ class StoryController extends BaseController {
         if($errorOcurred){
             return Redirect::to('/new-story')
                             ->withErrors($result)
-                            ->withInput($inputs);
+                            ->withInput();
         } else {
             $contents = $this->contentService->getAllContents();
 
