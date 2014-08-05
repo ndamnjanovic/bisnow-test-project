@@ -22,6 +22,10 @@ class CreateStoryDataTable extends Migration {
                 $table->string('value');
                 $table->timestamps();
             });
+
+            Schema::table('story_data', function($table) {
+               $table->foreign('story_id')->references('id')->on('stories');
+            });
         }
 	}
 

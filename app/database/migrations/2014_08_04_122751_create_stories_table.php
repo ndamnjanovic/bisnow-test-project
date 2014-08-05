@@ -22,6 +22,10 @@ class CreateStoriesTable extends Migration {
                 $table->text('content');
                 $table->timestamps();
             });
+
+            Schema::table('stories', function($table) {
+               $table->foreign('content_id')->references('id')->on('contents');
+            });
         }
 	}
 

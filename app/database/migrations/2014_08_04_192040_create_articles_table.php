@@ -22,6 +22,10 @@ class CreateArticlesTable extends Migration {
                 $table->text('content');
                 $table->timestamps();
             });
+
+            Schema::connection('mysql2')->table('articles', function($table) {
+               $table->foreign('content_id')->references('id')->on('test_project_db1.contents');
+            });
         }
 	}
 
