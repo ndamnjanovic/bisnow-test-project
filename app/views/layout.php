@@ -14,7 +14,7 @@
       <?php echo $content; ?>
     </div>
 
-
+    <script type="text/javascript" src="<?php echo URL::asset('scripts/vendor/jquery.js') ?>"></script>
     <script type="text/javascript" src="<?php echo URL::asset('scripts/vendor/bootstrap.min.js') ?>"></script>
   </body>
 </html>

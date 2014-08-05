@@ -2,6 +2,15 @@
 
 <div class="col-md-8 col-md-offset-2 contents">
 
+    @if (Session::has('message'))
+      <div class="alert alert-info alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        </button>
+        <?php echo Session::get('message'); ?>
+      </div>
+    @endif
+
     <table class="table table-striped">
       <thead>
         <tr>
@@ -15,18 +24,18 @@
             <tr>
               <td>{{{$content->id}}}</td>
               <td>
-                  @if($content->article != null)
-                    {{{$content->article->title}}}
-                  @else
-                    {{{$content->story->title}}}
-                  @endif
+                @if($content->article != null)
+                  {{{$content->article->title}}}
+                @else
+                  {{{$content->story->title}}}
+                @endif
               </td>
               <td>
-                  @if($content->article != null)
-                    {{{$content->article->content}}}
-                  @else
-                    {{{$content->story->content}}}
-                  @endif
+                @if($content->article != null)
+                  {{{$content->article->content}}}
+                @else
+                  {{{$content->story->content}}}
+                @endif
               </td>
             </tr>
         @endforeach
